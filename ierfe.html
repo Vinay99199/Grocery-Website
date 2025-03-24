@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-bxTXI1/0vL+gqksK/lT4d1svvNqg4+IZXlIxn68FxpoT7kbo+y9G4Y5TnDx/mqQxAZCjY7/gW6Bbz+P5j5O0ag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+          <h1>Grocery Store</h1>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#cart">Cart</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+      
+    
+    <div id="slider">
+        <div class="slider-container">
+            <div class="slides">
+                <!-- <img src="https://source.unsplash.com/1600x900/?grocery,fruits,vegetables" alt="Fresh Vegetables">
+                <img src="https://source.unsplash.com/1600x900/?supermarket,aisle,shopping" alt="Supermarket Aisle">
+                <img src="https://source.unsplash.com/1600x900/?bakery,bread,pastries" alt="Bakery">
+                <img src="https://source.unsplash.com/1600x900/?milk,dairy,cheese" alt="Dairy Products">
+                <img src="https://source.unsplash.com/1600x900/?organic,store,vegetables" alt="Organic Grocery">
+                 -->
+                
+                <img src="images/slider5.avif" alt="Vegetables & Fruits">
+                <img src="images/slider5.avif" alt="Supermarket Aisle">
+                <img src="images/slider1.avif" alt="Bakery & Bread">
+                <img src="images/slider2.avif" alt="Dairy & Milk">
+                <img src="images/slider2.jpg" alt="Organic Grocery">
+            </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+    
+    
+    <section id="home">
+        <h2>Welcome to Vinay Grocery Store</h2>
+        <p>Fresh and quality groceries at your doorstep.</p>
+        <input type="text" placeholder="Search for products...">
+    </section>
+
+<!-- vegetables -->
+<section id="products">
+    <h2>🥦 Fresh Vegetables & Groceries 🛒</h2>
+    <div class="slider-container">
+        <button class="prev" onclick="slide(-1)">&#10094;</button>
+        <div class="product-list">
+            <div class="product">
+                <img src="images/apple.jpg" alt="Apple">
+                <h3>Fresh Apples</h3>
+                <p>Price: $2/kg</p>
+                <button onclick="addToCart('Fresh Apples', 2)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/milk.jpg" alt="Milk">
+                <h3>Organic Milk</h3>
+                <p>Price: $1.5/L</p>
+                <button onclick="addToCart('Organic Milk', 1.5)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/bread.jpg" alt="Bread">
+                <h3>Whole Wheat Bread</h3>
+                <p>Price: $1.8/loaf</p>
+                <button onclick="addToCart('Whole Wheat Bread', 1.8)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apples">
+                <h3>Red Apples (1kg)</h3>
+                <p>Price: $4.0</p>
+                <button onclick="addToCart('Red Apples', 4.0)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Bananas">
+                <h3>Bananas (1 Dozen)</h3>
+                <p>Price: $2.5</p>
+                <button onclick="addToCart('Bananas', 2.5)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Bananas">
+                <h3>Bananas (1 Dozen)</h3>
+                <p>Price: $2.5</p>
+                <button onclick="addToCart('Bananas', 2.5)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/milk.jpg" alt="Milk">
+                <h3>Organic Milk</h3>
+                <p>Price: $1.5/L</p>
+                <button onclick="addToCart('Organic Milk', 1.5)">Add to Cart</button>
+            </div>
+        </div>
+        <button class="next" onclick="slide(1)">&#10095;</button>
+    </div>
+  </section>
+    
+  <section id="cart">
+    <h2>🛍 Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="cart-total">0.00</span></p>
+    <button onclick="checkout()">Checkout</button>
+  </section>
+
+    
+  <section id="offers">
+    <h2>🔥 Special Offers 🔥</h2>
+    <p>Buy <strong>1</strong> Get <strong>1</strong> Free on selected items! 🎉</p>
+    
+    <!-- Dropdown for more offers -->
+    <div class="offers-dropdown">
+      <button class="dropdown-toggle">
+        View More Offers <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <ul>
+          <li>Offer 1: Buy 2, Get 1 Free on Dairy Products</li>
+          <li>Offer 2: 20% off on Organic Vegetables</li>
+          <li>Offer 3: Free delivery on orders above $50</li>
+          <li>Offer 4: Cashback up to $5 on your first purchase</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+    
+    <section id="faq">
+        <h2>❓ Frequently Asked Questions ❓</h2>
+        <p>Find answers to common queries here. 💡</p>
+    </section>
+    
+    
+    <section id="login">
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+    
+ 
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Company Info -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Our Stores</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+    
+        <!-- Help Section -->
+        <div class="footer-column">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Cancellations</a></li>
+          </ul>
+        </div>
+    
+        <!-- Policies -->
+        <div class="footer-column">
+          <h4>Our Policies</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Payment & Refund</a></li>
+          </ul>
+        </div>
+    
+        <!-- Connect with Us -->
+        <div class="footer-column">
+          <h4>Connect with Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+    
+        <!-- Newsletter -->
+        <div class="footer-column">
+          <h4>Subscribe to Newsletter</h4>
+          <p>Get exclusive offers and latest updates!</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+    
+        <!-- Download App Section -->
+        <div class="app-links">
+          <!-- Google Play Store Official Badge -->
+          <a href="https://play.google.com/store/apps/details?id=YOUR_APP_ID">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Google Play Store" 
+              style="height:50px;"
+            >
+          </a>
+        
+         
+<!-- Apple App Store Badge -->
+<a href="https://apps.apple.com/" target="_blank">
+  <img 
+    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+    alt="Download on the App Store"
+    style="height:50px;"
+  >
+</a>
+        </div>
+    
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> Toll Free: 1800-123-4567</li>
+            <li><i class="fas fa-envelope"></i> support@grocerystore.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Market Road, Mumbai, India</li>
+            <li><i class="fas fa-clock"></i> Open Hours: 7:00 AM – 11:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    
+      <!-- Payment Icons -->
+      <div class="payment-icons">
+        <!-- VISA -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" 
+        alt="Visa" 
+        style="height:30px; margin:0 10px;">
+         
+        <!-- MasterCard -->
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+          alt="MasterCard"
+          style="height:30px; margin:0 10px;"
+        >
+      
+        <!-- PayPal -->
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+          alt="PayPal"
+          style="height:30px; margin:0 10px;"
+        >
+      
+        <!-- UPI -->
+        <img src="images/upi.jpg" alt="UPI" style="height:30px; margin:0 10px;">
+
+      
+        <!-- Cash On Delivery (Placeholder) -->
+        <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" 
+        alt="Cash On Delivery" 
+        style="height:30px; margin:0 10px;">
+         </div>
+    
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Grocery Store | All rights reserved | Made with ❤️ in India</p>
+      </div>
+    </footer>
+    
+      
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*** Load DOM Content ***/
+document.addEventListener("DOMContentLoaded", () => {
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const searchInput = document.querySelector("input[type='text']");
+    const products = document.querySelectorAll(".product");
+
+    // Initial Cart Load
+    updateCart();
+
+    /*** Circular Image Slider ***/
+    let index = 1;
+    const slides = document.querySelector(".slides");
+    let images = document.querySelectorAll(".slides img");
+
+    // Clone first and last images
+    const firstClone = images[0].cloneNode(true);
+    const lastClone = images[images.length - 1].cloneNode(true);
+    slides.appendChild(firstClone);
+    slides.insertBefore(lastClone, images[0]);
+
+    let totalSlides = document.querySelectorAll(".slides img").length;
+    let slideWidth = images[0].clientWidth;
+
+    function updateSliderWidth() {
+        slideWidth = window.innerWidth;
+        slides.style.width = `${images.length * 100}vw`;
+        slides.style.transform = `translateX(${-slideWidth * index}px)`;
+        images.forEach(img => img.style.width = `${slideWidth}px`);
+    }
+
+    window.addEventListener("resize", updateSliderWidth);
+    updateSliderWidth();
+
+    function moveSlide(step) {
+        index += step;
+        slides.style.transition = "transform 0.5s ease-in-out";
+        slides.style.transform = `translateX(${-slideWidth * index}px)`;
+
+        setTimeout(() => {
+            if (index >= totalSlides - 1) {
+                index = 1;
+                slides.style.transition = "none";
+                slides.style.transform = `translateX(${-slideWidth * index}px)`;
+            } else if (index <= 0) {
+                index = totalSlides - 2;
+                slides.style.transition = "none";
+                slides.style.transform = `translateX(${-slideWidth * index}px)`;
+            }
+        }, 500);
+    }
+
+    document.querySelector(".prev").addEventListener("click", () => moveSlide(-1));
+    document.querySelector(".next").addEventListener("click", () => moveSlide(1));
+
+    let autoSlide = setInterval(() => moveSlide(1), 3000);
+    slides.addEventListener("mouseenter", () => clearInterval(autoSlide));
+    slides.addEventListener("mouseleave", () => autoSlide = setInterval(() => moveSlide(1), 3000));
+
+    /*** Search Functionality ***/
+    if (searchInput) {
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            let firstMatch = null;
+
+            products.forEach(product => {
+                const name = product.querySelector("h3").textContent.toLowerCase();
+                if (name.includes(query)) {
+                    product.style.display = "block";
+                    if (!firstMatch) firstMatch = product;
+                } else {
+                    product.style.display = "none";
+                }
+            });
+
+            if (firstMatch) {
+                firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdownToggle = document.querySelector(".dropdown-toggle");
+    const offersDropdown = document.querySelector(".offers-dropdown");
+  
+    dropdownToggle.addEventListener("click", () => {
+      offersDropdown.classList.toggle("active");
+    });
+  });
+  
+/*** ✅ Add to Cart ***/
+window.addToCart = (name, price) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.some(item => item.name === name)) {
+        alert("This item is already in your cart!");
+        return;
+    }
+
+    cart.push({ name, price: Number(price) });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+};
+
+/*** ✅ Update Cart ***/
+function updateCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+    document.getElementById("cart").style.display = cart.length > 0 ? "block" : "none";
+}
+
+/*** ✅ Checkout ***/
+window.checkout = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+    } else {
+        alert("Proceeding to checkout! Total: $" + document.getElementById("cart-total").textContent);
+        localStorage.removeItem("cart");
+        updateCart();
+    }
+};
+
+/*** ✅ Sliding Product List Buttons ***/
+window.slide = (direction) => {
+    const container = document.querySelector(".product-list");
+    const scrollAmount = 300;
+    container.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    padding-top: 58px; /* Same as navbar height */
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* header */
+header {
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+nav ul li a:hover {
+    color: rgb(255, 176, 49);
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        background: #218838;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 60px;
+        text-align: center;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-in-out;
+        pointer-events: none; /* Prevent clicks when hidden */
+    }
+
+    nav ul.show {
+        max-height: 300px; /* Adjust height dynamically */
+        pointer-events: auto; /* Enable clicks when shown */
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 26px;
+        padding: 10px;
+    }
+}
+
+
+/* Section Styling */
+section {
+    padding: 80px 20px 20px;
+    margin: 10px auto;
+    max-width: 90%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Image Slider - Full Width */
+#slider {
+    width: 100vw;  /* Ensure it takes the full viewport width */
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-container {
+    width: 100vw; /* Ensure full width */
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    min-width: 100vw; /* Force each image to take full viewport width */
+    height: 320px; /* Adjust based on your design */
+    object-fit: cover;
+    border-radius: 10px; /* Light curve */
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slides img { height: 200px; } /* Adjust height for mobile */
+}
+
+
+
+/* Product Section Styling */
+#products {
+    text-align: center;
+    padding: 30px;
+    background: #f8f8f8;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    max-width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Product List (Sliding) */
+.product-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Ensure scrolling */
+    scroll-behavior: smooth;
+    padding: 10px;
+    white-space: nowrap; /* Prevent wrapping */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide Scrollbar for Chrome & Safari */
+.product-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Product Cards */
+.product {
+    min-width: 250px; /* Ensures side-by-side layout */
+    flex-shrink: 0; /* Prevents shrinking */
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.product button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.product button:hover {
+    background: #218838;
+}
+
+/* Slider Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: black;
+}
+
+/* Shopping Cart */
+#cart {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Hide scrollbar inside cart */
+#cart::-webkit-scrollbar {
+    display: none;
+}
+
+#cart h2 {
+    font-size: 18px;
+}
+
+#cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+#cart ul li {
+    padding: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slider-container {
+        max-width: 100%;
+    }
+
+    .product-list {
+        flex-wrap: nowrap;
+    }
+
+    .prev, .next {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    #cart {
+        display: none;
+        width: 100%;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        padding: 15px;
+        z-index: 1000;
+        max-height: 50vh;
+    }
+}
+
+
+/* Special Offers Section */
+#offers {
+    text-align: center;
+    padding: 30px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 90%;
+  }
+  
+  #offers h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Dropdown Container */
+  .offers-dropdown {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Dropdown Toggle Button */
+  .dropdown-toggle {
+    background: #ff7e5f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .dropdown-toggle:hover {
+    background: #e06c52;
+  }
+  
+  .dropdown-toggle i {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Dropdown Content */
+  .dropdown-content {
+    display: none;
+    background: #f8f8f8;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-content ul li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropdown-content ul li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Active state for dropdown */
+  .offers-dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  .offers-dropdown.active .dropdown-toggle i {
+    transform: rotate(180deg);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .dropdown-toggle {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  
+    .dropdown-content {
+      padding: 8px;
+      max-width: 90%;
+    }
+  }
+  
+/* FAQ Section Styles */
+#faq {
+    text-align: center;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 40px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Headline */
+#faq h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Description */
+#faq p {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+#faq:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #faq {
+        max-width: 85%;
+        padding: 30px;
+    }
+
+    #faq h2 {
+        font-size: 2.2rem;
+    }
+
+    #faq p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #faq {
+        max-width: 90%;
+        padding: 25px;
+    }
+
+    #faq h2 {
+        font-size: 2rem;
+    }
+
+    #faq p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #faq {
+        max-width: 95%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #faq h2 {
+        font-size: 1.8rem;
+    }
+
+    #faq p {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Login Form */
+#login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login label {
+    margin-top: 10px;
+}
+
+#login input {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Footer Base Styling */
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  .footer-column {
+    flex: 1 1 250px;
+    min-width: 250px;
+  }
+  
+  .footer-column h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #f9c22e;
+    border-bottom: 2px solid #f9c22e;
+    padding-bottom: 5px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Footer Links with Hover Underline Sticker Effect */
+  .footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #f9c22e;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #fff;
+  }
+  
+  .footer-column ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Social Links */
+  .social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #ccc;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #f9c22e;
+  }
+  
+  /* Newsletter Form */
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .newsletter-form input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .newsletter-form button {
+    background-color: #f9c22e;
+    color: #222;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+  
+  .newsletter-form button:hover {
+    background-color: #e0aa1f;
+  }
+  
+  /* App Links */
+  .app-links img {
+    height: 45px;
+    margin: 5px 10px 0 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .app-links img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Contact Icons */
+  .footer-column ul li i {
+    margin-right: 8px;
+    color: #f9c22e;
+  }
+  
+  /* Payment Icons */
+  .footer-payments {
+    border-top: 1px solid #444;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+  }
+  
+  .footer-payments h4 {
+    margin-bottom: 10px;
+    color: #f9c22e;
+  }
+  
+  .payment-icons img {
+    height: 30px;
+    margin: 0 10px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+  }
+  
+  .payment-icons img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 20px;
+    }
+  
+    .footer-column {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  
+    .newsletter-form input[type="email"] {
+      max-width: 100%;
+    }
+  
+    .app-links img {
+      height: 40px;
+    }
+  
+    .payment-icons img {
+      height: 25px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .social-links a {
+      font-size: 16px;
+      margin-right: 8px;
+    }
+  
+    .newsletter-form button {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .footer-column h4 {
+      font-size: 16px;
+    }
+  }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!-- 1️⃣ Fresh Vegetables Section -->
+<section class="product-section">
+  <div class="section-header">
+    <h2>Fresh Vegetables</h2>
+    <a href="#" class="see-all">See All</a>
+  </div>
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" data-target="vegetables">&#10094;</button>
+    <div class="product-slider" id="vegetables">
+      <div class="product-card"><img src="images/tomato.jpg"><h4>Tomato</h4><p>₹20/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/potato.jpg"><h4>Potato</h4><p>₹15/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/carrot.jpg"><h4>Carrot</h4><p>₹30/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/onion.jpg"><h4>Onion</h4><p>₹18/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/cabbage.jpg"><h4>Cabbage</h4><p>₹25/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/broccoli.jpg"><h4>Broccoli</h4><p>₹40/kg</p><button class="add-btn">Add</button></div>
+    </div>
+    <button class="slider-btn next" data-target="vegetables">&#10095;</button>
+  </div>
+</section>
+
+<!-- 2️⃣ Fresh Fruits Section -->
+<section class="product-section">
+  <div class="section-header">
+    <h2>Fresh Fruits</h2>
+    <a href="#" class="see-all">See All</a>
+  </div>
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" data-target="fruits">&#10094;</button>
+    <div class="product-slider" id="fruits">
+      <div class="product-card"><img src="images/apple.jpg"><h4>Apple</h4><p>₹120/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/banana.jpg"><h4>Banana</h4><p>₹45/dozen</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/orange.jpg"><h4>Orange</h4><p>₹70/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/kiwi.jpg"><h4>Kiwi</h4><p>₹25/pc</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/mango.jpg"><h4>Mango</h4><p>₹90/kg</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/grapes.jpg"><h4>Grapes</h4><p>₹60/kg</p><button class="add-btn">Add</button></div>
+    </div>
+    <button class="slider-btn next" data-target="fruits">&#10095;</button>
+  </div>
+</section>
+
+<!-- 3️⃣ Snacks Section -->
+<section class="product-section">
+  <div class="section-header">
+    <h2>Snacks</h2>
+    <a href="#" class="see-all">See All</a>
+  </div>
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" data-target="snacks">&#10094;</button>
+    <div class="product-slider" id="snacks">
+      <div class="product-card"><img src="images/chips.jpg"><h4>Potato Chips</h4><p>₹20</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/biscuits.jpg"><h4>Biscuits</h4><p>₹10</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/namkeen.jpg"><h4>Namkeen</h4><p>₹35</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/popcorn.jpg"><h4>Popcorn</h4><p>₹40</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/chocolate.jpg"><h4>Chocolate</h4><p>₹50</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/samosa.jpg"><h4>Samosa</h4><p>₹15</p><button class="add-btn">Add</button></div>
+    </div>
+    <button class="slider-btn next" data-target="snacks">&#10095;</button>
+  </div>
+</section>
+
+<!-- 4️⃣ Beverages Section -->
+<section class="product-section">
+  <div class="section-header">
+    <h2>Beverages</h2>
+    <a href="#" class="see-all">See All</a>
+  </div>
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" data-target="beverages">&#10094;</button>
+    <div class="product-slider" id="beverages">
+      <div class="product-card"><img src="images/cola.jpg"><h4>Cola Drink</h4><p>₹30</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/juice.jpg"><h4>Fruit Juice</h4><p>₹40</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/lemonade.jpg"><h4>Lemonade</h4><p>₹25</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/energy-drink.jpg"><h4>Energy Drink</h4><p>₹60</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/tea.jpg"><h4>Ice Tea</h4><p>₹35</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/milkshake.jpg"><h4>Milkshake</h4><p>₹50</p><button class="add-btn">Add</button></div>
+    </div>
+    <button class="slider-btn next" data-target="beverages">&#10095;</button>
+  </div>
+</section>
+
+<!-- 5️⃣ Dairy Products Section -->
+<section class="product-section">
+  <div class="section-header">
+    <h2>Dairy Products</h2>
+    <a href="#" class="see-all">See All</a>
+  </div>
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" data-target="dairy">&#10094;</button>
+    <div class="product-slider" id="dairy">
+      <div class="product-card"><img src="images/milk.jpg"><h4>Milk</h4><p>₹50/L</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/cheese.jpg"><h4>Cheese</h4><p>₹80</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/butter.jpg"><h4>Butter</h4><p>₹90</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/curd.jpg"><h4>Curd</h4><p>₹35</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/paneer.jpg"><h4>Paneer</h4><p>₹100</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/ghee.jpg"><h4>Ghee</h4><p>₹200</p><button class="add-btn">Add</button></div>
+    </div>
+    <button class="slider-btn next" data-target="dairy">&#10095;</button>
+  </div>
+</section>
+
+<!-- 6️⃣ Bakery Items Section -->
+<section class="product-section">
+  <div class="section-header">
+    <h2>Bakery Items</h2>
+    <a href="#" class="see-all">See All</a>
+  </div>
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" data-target="bakery">&#10094;</button>
+    <div class="product-slider" id="bakery">
+      <div class="product-card"><img src="images/bread.jpg"><h4>Bread</h4><p>₹30</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/cake.jpg"><h4>Cake</h4><p>₹250</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/cookies.jpg"><h4>Cookies</h4><p>₹50</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/pastry.jpg"><h4>Pastry</h4><p>₹60</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/bun.jpg"><h4>Bun</h4><p>₹25</p><button class="add-btn">Add</button></div>
+      <div class="product-card"><img src="images/donut.jpg"><h4>Donut</h4><p>₹40</p><button class="add-btn">Add</button></div>
+    </div>
+    <button class="slider-btn next" data-target="bakery">&#10095;</button>
+  </div>
+</section>
+
+✅ PRODUCT SECTIONS END

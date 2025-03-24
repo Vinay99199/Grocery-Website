@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-bxTXI1/0vL+gqksK/lT4d1svvNqg4+IZXlIxn68FxpoT7kbo+y9G4Y5TnDx/mqQxAZCjY7/gW6Bbz+P5j5O0ag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+   <!-- Font Awesome CDN (Include in <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<header class="main-header">
+  <div class="container-header">
+
+    <!-- Left: Logo -->
+    <div class="header-left">
+      <div class="logo">
+        <h1>Vinay Grocery</h1>
+      </div>
+    </div>
+
+    <!-- Center: Navigation -->
+    <div class="header-center">
+      <nav class="navbar" id="navbar">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Right: Search, Cart, Login -->
+    <div class="header-right">
+      <div class="header-search">
+        <input type="text" placeholder="Search groceries...">
+        <i class="fas fa-search"></i>
+      </div>
+
+      <div class="cart">
+        <a href="#cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">2</span>
+        </a>
+      </div>
+
+      <div class="login-dropdown">
+        <button class="login-btn" id="loginToggle">
+          <i class="fas fa-user"></i> Login <i class="fas fa-caret-down"></i>
+        </button>
+        <div class="login-menu" id="loginMenu">
+          <a href="#login">Login</a>
+          <a href="#register">Register</a>
+          <a href="#account">My Account</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Icon -->
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+
+
+<!-- 🌟 E-Commerce Image Slider Section (Complete Code) -->
+<section id="slider" class="ecom-slider">
+  <div class="slider-container">
+    <div class="slides">
+      <div class="slide">
+        <img src="images/slider5.avif" alt="Fresh Vegetables">
+        <div class="slide-caption">
+          <h3>Fresh Vegetables</h3>
+          <a href="#products" class="slide-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/slider1.avif" alt="Bakery & Bread">
+        <div class="slide-caption">
+          <h3>Bakery Delights</h3>
+          <a href="#products" class="slide-btn">Explore</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/slider2.avif" alt="Dairy & Milk">
+        <div class="slide-caption">
+          <h3>Dairy Essentials</h3>
+          <a href="#products" class="slide-btn">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+
+
+<!-- ✅ PRODUCT SECTIONS START -->
+<!-- 🥦 Vegetables Section -->
+<section id="products">
+  <h2>🥦 Fresh Vegetables & Groceries 🛒</h2>
+  <div class="product-slider">
+    <button class="prev" onclick="slide(-1)">&#10094;</button>
+    <div class="product-list">
+      <div class="product">
+        <img src="images/apple.jpg" alt="Apple">
+        <h3>Fresh Apples</h3>
+        <p>Price: $2/kg</p>
+        <button onclick="addToCart('Fresh Apples', 2)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/milk.jpg" alt="Milk">
+        <h3>Organic Milk</h3>
+        <p>Price: $1.5/L</p>
+        <button onclick="addToCart('Organic Milk', 1.5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/bread.jpg" alt="Bread">
+        <h3>Whole Wheat Bread</h3>
+        <p>Price: $1.8/loaf</p>
+        <button onclick="addToCart('Whole Wheat Bread', 1.8)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apples">
+        <h3>Red Apples (1kg)</h3>
+        <p>Price: $4.0</p>
+        <button onclick="addToCart('Red Apples', 4.0)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Bananas">
+        <h3>Bananas (1 Dozen)</h3>
+        <p>Price: $2.5</p>
+        <button onclick="addToCart('Bananas', 2.5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Bananas">
+        <h3>Bananas (1 Dozen)</h3>
+        <p>Price: $2.5</p>
+        <button onclick="addToCart('Bananas', 2.5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/milk.jpg" alt="Milk">
+        <h3>Organic Milk</h3>
+        <p>Price: $1.5/L</p>
+        <button onclick="addToCart('Organic Milk', 1.5)">Add to Cart</button>
+      </div>
+    </div>
+    <button class="next" onclick="slide(1)">&#10095;</button>
+  </div>
+</section>
+
+<!-- fruit -->
+<section id="products">
+  <h2>🥦 Fresh Vegetables & Groceries 🛒</h2>
+  <div class="product-slider">
+    <button class="prev" onclick="slide(-1)">&#10094;</button>
+    <div class="product-list">
+      <div class="product">
+        <img src="images/a.jpg" alt="Apple">
+        <h3>Fresh Apples</h3>
+        <p>Price: $2/kg</p>
+        <button onclick="addToCart('Fresh Apples', 2)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/b.jpg" alt="Milk">
+        <h3>Organic Milk</h3>
+        <p>Price: $1.5/L</p>
+        <button onclick="addToCart('Organic Milk', 1.5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/c.jpg" alt="Bread">
+        <h3>Whole Wheat Bread</h3>
+        <p>Price: $1.8/loaf</p>
+        <button onclick="addToCart('Whole Wheat Bread', 1.8)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/d.jpg" alt="Apples">
+        <h3>Red Apples (1kg)</h3>
+        <p>Price: $4.0</p>
+        <button onclick="addToCart('Red Apples', 4.0)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/d.jpg" alt="Bananas">
+        <h3>Bananas (1 Dozen)</h3>
+        <p>Price: $2.5</p>
+        <button onclick="addToCart('Bananas', 2.5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/e.jpg" alt="Bananas">
+        <h3>Bananas (1 Dozen)</h3>
+        <p>Price: $2.5</p>
+        <button onclick="addToCart('Bananas', 2.5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="images/g.jpg" alt="Milk">
+        <h3>Organic Milk</h3>
+        <p>Price: $1.5/L</p>
+        <button onclick="addToCart('Organic Milk', 1.5)">Add to Cart</button>
+      </div>
+    </div>
+    <button class="next" onclick="slide(1)">&#10095;</button>
+  </div>
+</section>
+<!-- ✅ PRODUCT SECTIONS END -->
+
+
+    
+  
+  <section id="cart">
+    <div class="cart-header">
+      <h2>🛍 Shopping Cart</h2>
+      <button class="close-cart" onclick="toggleCart()">✖</button>
+    </div>
+    <ul id="cart-items"></ul>
+    <div class="cart-summary">
+      <p><strong>Total:</strong> ₹<span id="cart-total">0.00</span></p>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </section>
+  
+
+    
+  <section id="offers" class="offers-section">
+    <div class="offers-container">
+      <h2>🔥 Special Offers 🔥</h2>
+      <p class="offers-subtext">Buy <strong>1</strong> Get <strong>1</strong> Free on selected items! 🎉</p>
+  
+      <!-- Dropdown Toggle -->
+      <div class="offers-dropdown">
+        <button class="dropdown-toggle">
+          View More Offers <i class="fas fa-chevron-down"></i>
+        </button>
+  
+        <div class="dropdown-content">
+          <ul>
+            <li>
+              <a href="#dairy-products" class="offer-link">
+                <i class="fas fa-gift"></i> Buy 2, Get 1 Free on Dairy Products
+              </a>
+            </li>
+            <li>
+              <a href="#organic-vegetables" class="offer-link">
+                <i class="fas fa-percent"></i> 20% off on Organic Vegetables
+              </a>
+            </li>
+            <li>
+              <a href="#delivery-info" class="offer-link">
+                <i class="fas fa-truck"></i> Free delivery on orders above ₹500
+              </a>
+            </li>
+            <li>
+              <a href="#first-purchase" class="offer-link">
+                <i class="fas fa-wallet"></i> Cashback up to ₹100 on your first purchase
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    
+<section id="faq" class="faq-section">
+  <div class="container">
+    <h2 id="faq-toggle-btn" class="faq-heading">❓ Frequently Asked Questions</h2>
+    <p class="faq-intro">Get instant answers to your common queries.</p>
+
+    <div class="faq-dropdown-wrapper">
+      <div class="faq-dropdown" id="faq-content">
+        <div class="faq-box">
+          <div class="faq-header">How can I track my order?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">You can track your order from your account dashboard or using the tracking link sent via email/SMS.</div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-header">What is your return policy?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">We accept returns within 7 days. Items must be in original condition with tags and packaging intact.</div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-header">Can I cancel an order after placing it?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">Yes, you can cancel the order within 2 hours from your account orders section.</div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-header">Do you offer same-day delivery?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">Yes, same-day delivery is available in select cities on eligible items.</div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-header">Which payment methods do you support?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">We support UPI, Debit/Credit Cards, Net Banking, Wallets & Cash on Delivery (COD).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+    
+    <section id="login">
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+    
+ 
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Company Info -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Our Stores</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+    
+        <!-- Help Section -->
+        <div class="footer-column">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Cancellations</a></li>
+          </ul>
+        </div>
+    
+        <!-- Policies -->
+        <div class="footer-column">
+          <h4>Our Policies</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Payment & Refund</a></li>
+          </ul>
+        </div>
+    
+        <!-- Connect with Us -->
+        <div class="footer-column">
+          <h4>Connect with Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+    
+        <!-- Newsletter -->
+        <div class="footer-column">
+          <h4>Subscribe to Newsletter</h4>
+          <p>Get exclusive offers and latest updates!</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+    
+        <!-- Download App Section -->
+        <div class="app-links">
+          <!-- Google Play Store Official Badge -->
+          <a href="https://play.google.com/store/apps/details?id=YOUR_APP_ID">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Google Play Store" 
+              style="height:50px;"
+            >
+          </a>
+        
+         
+<!-- Apple App Store Badge -->
+<a href="https://apps.apple.com/" target="_blank">
+  <img 
+    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+    alt="Download on the App Store"
+    style="height:50px;"
+  >
+</a>
+        </div>
+    
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> Toll Free: 1800-123-4567</li>
+            <li><i class="fas fa-envelope"></i> support@grocerystore.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Market Road, Mumbai, India</li>
+            <li><i class="fas fa-clock"></i> Open Hours: 7:00 AM – 11:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    
+<!-- Payment Icons with Links -->
+<div class="payment-icons">
+  <!-- VISA -->
+  <a href="https://www.visa.com" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" 
+         alt="Visa" 
+         style="height:30px; margin:0 10px;">
+  </a>
+
+  <!-- MasterCard -->
+  <a href="https://www.mastercard.com" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+         alt="MasterCard"
+         style="height:30px; margin:0 10px;">
+  </a>
+
+  <!-- PayPal -->
+  <a href="https://www.paypal.com" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+         alt="PayPal"
+         style="height:30px; margin:0 10px;">
+  </a>
+
+  <!-- UPI -->
+  <a href="https://www.npci.org.in/what-we-do/upi/product-overview" target="_blank">
+    <img src="images/upi.jpg" 
+         alt="UPI" 
+         style="height:30px; margin:0 10px;">
+  </a>
+
+  <!-- Cash On Delivery -->
+  <a href="#" title="Cash On Delivery">
+    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" 
+         alt="Cash On Delivery" 
+         style="height:30px; margin:0 10px;">
+  </a>
+</div>
+
+    
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Grocery Store | All rights reserved | Made with ❤️ in India</p>
+      </div>
+    </footer>
+    
+      
+  </body>
+</html>
